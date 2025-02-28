@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+🚀 Features
+✅ View movie details
+✅ Rate and review movies
+✅ Store and manage data using MongoDB
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛠️ Tech Stack
+Frontend: React, React Router, Tailwind CSS
+Backend: Node.js, Express.js
+Database: MongoDB
+State Management: React Query
+Forms & Validation: React Hook Form
+🔧 Installation & Setup
+1️⃣ Clone the Repository
+sh
+Copy
+Edit
+git clone https://github.com/YOUR_GITHUB_USERNAME/review-web-app.git
+cd review-web-app
+2️⃣ Install Dependencies
+sh
+Copy
+Edit
+npm install
+3️⃣ Run the Backend
+sh
+Copy
+Edit
+cd backend
+npm start
+4️⃣ Run the Frontend
+sh
+Copy
+Edit
+cd frontend
+npm run dev
+5️⃣ Open in Browser
+Visit http://localhost:5173 (or the Vite dev server URL)
 
-Currently, two official plugins are available:
+📌 Environment Variables
+Create a .env file in the backend folder and add:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+ini
+Copy
+Edit
+MONGO_URI=your_mongodb_connection_string
+PORT=5000
+🎯 Contributing
+Fork the repository
+Create a new branch (git checkout -b feature-name)
+Commit changes (git commit -m "Add new feature")
+Push to GitHub (git push origin feature-name)
+Create a pull request
