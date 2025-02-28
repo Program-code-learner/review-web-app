@@ -21,9 +21,7 @@ Forms & Validation: React Hook Form
 
 1️⃣ Clone the Repository
 
-sh
-Copy
-Edit
+
 
 git clone https://github.com/YOUR_GITHUB_USERNAME/review-web-app.git
 
@@ -31,21 +29,13 @@ cd review-web-app
 
 2️⃣ Install Dependencies
 
-sh
 
-Copy
-
-Edit
 
 npm install
 
 3️⃣ Run the Backend
 
-sh
 
-Copy
-
-Edit
 
 cd backend
 
@@ -53,11 +43,7 @@ npm start
 
 4️⃣ Run the Frontend
 
-sh
 
-Copy
-
-Edit
 
 cd frontend
 
@@ -73,10 +59,7 @@ Create a .env file in the backend folder and add:
 
 ini
 
-Copy
 
-
-Edit
 
 MONGO_URI=your_mongodb_connection_string
 
