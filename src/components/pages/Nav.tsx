@@ -1,10 +1,17 @@
-import React from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthProvider";
+import { Button } from "../ui/button";
 
 const Nav = () => {
   // Get user login status from localStorage or your auth state management
-  const isLoggedIn = localStorage.getItem('user') || false;
-  const Navigate = useNavigate();
+  // const isLoggedIn = localStorage.getItem('user') || false;
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <div className="fixed top-0 w-full z-50 flex justify-between p-4 bg-gradient-to-b from-black/75 to-transparent text-white">
@@ -13,23 +20,14 @@ const Nav = () => {
         <Link to="/home" className="text-white hover:text-gray-300 transition-colors">
           Home
         </Link>
-        {!isLoggedIn && (
-          <Link to="/signup" className="text-white hover:text-gray-300 transition-colors">
-            Signup
+        {user ? (
+          <Button onClick={handleLogout}>Logout</Button>
+        ) : (
+          <Link to="/">
+            <Button>Login</Button>
           </Link>
         )}
-        {isLoggedIn && (
-          <button 
-            onClick={() => {
-              localStorage.removeItem('user');
-              // window.location.reload();
-              Navigate('/');
-            }}
-            className="text-white hover:text-gray-300 cursor-pointer transition-colors"
-          >
-            Logout
-          </button>
-        )}
+        
       </div>
     </div>
   );

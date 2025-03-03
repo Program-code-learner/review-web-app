@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 import Nav from "./Nav";
 import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
-import axios from "axios";
+import axios from "../../utils/axiosConfig";
 import { Skeleton } from "../ui/skeleton";
 
 interface ReviewForm {

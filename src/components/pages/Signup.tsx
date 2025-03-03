@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "../ui/input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button } from "../ui/button";
-import axios from "axios";
+import axios from "../../utils/axiosConfig";
 
 interface FormValues {
   username: string;
