@@ -1,4 +1,4 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 
 const Nav = () => {
   // Get user login status from localStorage or your auth state management
