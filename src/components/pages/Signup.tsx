@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "../ui/input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button } from "../ui/button";
-import axios from "../../utils/axiosConfig";
+import axios from "axios";
 
 interface FormValues {
   username: string;
@@ -21,10 +21,16 @@ const Signup = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
+      // const response = await axios.post(
+      //   "http://13.126.40.10:8080/api/auth/register",
+      //   data
+      // );
+      
       const response = await axios.post(
-        "http://localhost:8080/api/auth/register",
+        "https://review-web-app-backend.onrender.com/api/auth/register",
         data
       );
+
       console.log("Registration successful:", response.data);
       navigate("/");
     } catch (error) {

@@ -74,7 +74,9 @@ const Home = () => {
   const { data: movieRatings } = useQuery<MovieRating[]>({
     queryKey: ["movieRating"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:8080/reviews");
+      // const response = await axios.post('http://localhost:8080/reviews');
+
+      const res = await axios.get("https://review-web-app-backend.onrender.com/reviews");
       return res.data;
     },
   });

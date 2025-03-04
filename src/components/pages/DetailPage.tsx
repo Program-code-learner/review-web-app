@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 import Nav from "./Nav";
 import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
-import axios from "../../utils/axiosConfig";
+import axios from "axios";
 import { Skeleton } from "../ui/skeleton";
 
 interface ReviewForm {
@@ -43,7 +43,7 @@ const MovieDescription = () => {
   const fetchReviews = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/reviews/${movie.id}`
+        `https://review-web-app-backend.onrender.com/reviews/${movie.id}`
       );
       if (response.data && Array.isArray(response.data.reviews)) {
         setReviews(response.data.reviews);
@@ -64,7 +64,9 @@ const MovieDescription = () => {
     };
 
     try {
-      await axios.post("http://localhost:8080/api/reviews", reviewData);
+      await axios.post("https://review-web-app-backend.onrender.com/api/reviews", reviewData);
+      // const response = await axios.post('http://localhost:8080/api/reviews', reviewData);
+
       fetchReviews();
     } catch (error) {
       console.error("Error submitting review:", error);

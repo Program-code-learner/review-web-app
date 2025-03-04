@@ -2,8 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "../ui/input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button } from "../ui/button";
-import axios from "../../utils/axiosConfig";
-import { useAuth } from "./AuthProvider";
+import axios from "axios";
 
 interface FormValues {
   email: string;
@@ -11,7 +10,6 @@ interface FormValues {
 }
 
 const Login = () => {
-  const { login } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -21,21 +19,23 @@ const Login = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', data);
-      const userData = {
-        id: response.data.user.id,
-        username: response.data.user.username,
-        email: response.data.user.email
-      };
+      // const response = await axios.post('http://localhost:8080/api/auth/login', data);
+      const response = await axios.post('https://review-web-app-backend.onrender.com/api/auth/login', data);
+
+      console.log('Login successful:', response.data);
       
-      // Call login with the user data
-      login(userData);
+      // Save user data in localStorage
+      localStorage.setItem('user', JSON.stringify(response.data));
+      
+      // You can also save just the token if your API returns one
+      // localStorage.setItem('token', response.data.token);
       
       navigate('/home');
     } catch (error) {
       console.error('Login failed:', error);
     }
   };
+  
 
   return (
     <div 
